@@ -1,25 +1,13 @@
-FROM node:17-alpine AS build
+# Use the official Node.js image from the Docker Hub
+FROM node:17-alpine
 
 WORKDIR /app
 
 COPY package*.json ./
 
-RUN npm install
-
-COPY . .
-
-RUN npm run build
-
-
-FROM node:17-alpine
-
-WORKDIR /app
-
-COPY --from=build /app .
-
-
 RUN npm install --only=production
 
+COPY . .
 
 EXPOSE 3030
 
