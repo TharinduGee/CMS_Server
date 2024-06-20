@@ -39,7 +39,7 @@ app.get('/name' , async(req,res) => {
 mongoose
      .connect(MongoDBUrl)
      .then(() => {
-          console.log(`App is connected to database`);
+          console.log(`App is connected to mongodb database`);
           app.listen(PORT, () => {
                console.log(`Server is running on port ${PORT}`);
           });
